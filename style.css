@@ -443,7 +443,7 @@ html, body {
     /* --- ARKA PLAN AYARLARI --- */
     /* Hem karartma (linear-gradient) hem görseli aynı anda ekliyoruz */
     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
-                url('arşiv/arkaplanarsiv.jpg'); /* Buraya kendi görsel adını yaz kanka */
+                url('arsiv/arkaplanarsiv.jpg'); /* Buraya kendi görsel adını yaz kanka */
     
     background-size: cover; /* Görseli tüm alana yayar */
     background-position: center; /* Görseli ortalar */
@@ -618,7 +618,7 @@ html, body {
 .featured-film-section {
     width: 100%;
     height: 100vh;
-    background: url('arşiv/hamnet-bg.jpg') no-repeat center center;
+    background: url('arsiv/hamnet-bg.jpg') no-repeat center center;
     background-size: cover;
     position: relative;
     display: flex;
@@ -722,7 +722,7 @@ html, body {
     width: 100%;
     height: 100%;
     background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                url('arşiv/sentimental.jpg') no-repeat center center;
+                url('arsiv/sentimental.jpg') no-repeat center center;
     background-size: cover;
     border-radius: 15px; /* Görselin köşelerini hafif yumuşatmak şıktır */
     position: relative;
