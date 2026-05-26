@@ -1,0 +1,241 @@
+<link rel="stylesheet" href="style.css">
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOLEKSİYON | Making Of</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-color: #000; margin: 0; padding: 0;">
+
+
+    <header class="main-header">
+        <div class="logo"><img src="logo.svg" alt="Making Of Logo"></div>
+        <div class="header-right">
+            <img src="magazaikon.svg" class="icon-bag" alt="Bag"> 
+            <a href="girisyap.html" class="btn-outline" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">Giriş Yap</a>
+
+            <a href="kaydol.html" class="btn-filled" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">Kaydol</a>
+        </div>
+    </header>
+
+    <main class="arsiv-page-container">
+
+    <div class="koleksiyon-header" style="margin-bottom: 25px !important;">
+            <h1>KOLEKSİYON</h1>
+            <p style="margin-bottom: 0 !important; padding-bottom: 0 !important;">Editör & Üye Listeleri</p>
+        </div>
+
+        <div class="koleksiyon-hero slider-container" style="margin-top: 0 !important;">
+            <div class="slider-track" id="heroSlider">
+                <img src="arşiv/koleksiyonbanner.jpg" alt="Banner 1">
+                <img src="arşiv/koleksiyonbanner2.png" alt="Banner 2">
+                <img src="arşiv/koleksiyonbanner3.jpg" alt="Banner 3">
+                <img src="arşiv/koleksiyonbanner4.jpg" alt="Banner 3">
+            </div>
+            
+            <button class="slider-btn prev-btn" onclick="moveSlide(-1)">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="slider-btn next-btn" onclick="moveSlide(1)">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+        </div>
+    
+
+        <div class="koleksiyon-grid">
+            
+    <a href="2025filmler.html" class="collection-link">
+        <article class="guncel-card">
+            <div class="card-img-top" style="background-image: url('arşiv/eniyifilmler.jpg.webp');"></div>
+            <div class="card-body">
+                <div class="meta" style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                    <span class="category-tag" style="background-color: #e53935;">Editör Listesi</span>
+                    <span class="date">1 Ocak 2026</span>
+                </div>
+                <h3>Geçtiğimiz Yılın En İyi Filmleri</h3>
+                <p class="excerpt">Önemli yönetmenlerin yeni filmlerinin izleyiciyle buluştuğu geçtiğimiz yıla ait en iyi filmleri sizler için bu listede derledik.</p>
+            </div>
+        </article>
+    </a>
+
+    <a href="21yüzyıl.html" class="collection-link">
+        <article class="guncel-card">
+            <div class="card-img-top" style="background-image: url('arşiv/21yüzyıl.jpg');"></div>
+            <div class="card-body">
+                <div class="meta" style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                    <span class="category-tag" style="background-color: #e53935;">Editör Listesi</span>
+                    <span class="date">9 Kasım 2025</span>
+                </div>
+                <h3>21. Yüzyılın En İyi Filmleri</h3>
+                <p class="excerpt">Görsel dilleriyle büyüleyen ve anlatı sınırlarını zorlayan filmlerden oluşan bu liste, çağdaş sinemanın en çarpıcı yansımalarını bir araya getiriyor.</p>
+            </div>
+        </article>
+    </a>
+
+    <a href="yazfilmleri.html" class="collection-link">
+        <article class="guncel-card">
+            <div class="card-img-top" style="background-image: url('arşiv/yazfilmleri.jpg');"></div>
+            <div class="card-body">
+                <div class="meta" style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                    <span class="category-tag" style="background-color: #e53935;">Üye Listesi</span>
+                    <span class="date">15 Mart 2026</span>
+                </div>
+                <h3>Yaz Filmleri</h3>
+                <p class="excerpt">Güneşin kavrukluğunu ve yaz esintisinin hafifliğini teninizde hissettiren filmlerden oluşan bu seçki sizi yaz akşamlarında bir yolculuğa davet ediyor.</p>
+            </div>
+        </article>
+    </a>
+
+    <a href="kadınlaryönetmeseydi.html" class="collection-link">
+        <article class="guncel-card">
+            <div class="card-img-top" style="background-image: url('arşiv/kadınlaryönetmeseydi.jpeg');"></div>
+            <div class="card-body">
+                <div class="meta" style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                    <span class="category-tag" style="background-color: #e53935;">Editör Listesi</span>
+                    <span class="date">6 Nisan 2026</span>
+                </div>
+                <h3>Ya Kadınlar Hiç Yönetmeseydi?</h3>
+                <p class="excerpt">Bu liste, kadın yönetmenlerin kadrajıyla hayat bulan sarsıcı anlatıları, estetik devrimleri ve insan hikayelerine kattıkları o eşsiz derinliği kutluyor.</p>
+            </div>
+        </article>
+    </a>
+
+</div>
+
+    </main>
+
+   <nav class="main-nav">
+        <div class="nav-capsule">
+            <div class="search-bar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" placeholder="Arama">
+            </div>
+            <a href="index.html">Ana Sayfa</a>
+            <a href="guncel.html">Güncel</a>
+            <a href="arsiv.html">Film Arşivi</a>
+            <a href="koleksiyon.html" class="active">Koleksiyon</a>
+            <a href="topluluk.html">Topluluk</a>
+            <a href="magaza.html">Mağaza</a>
+        </div>
+    </nav>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>BÜLTENİMİZİ TAKİP ETMEK İÇİN KAYIT OL!</h3>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="E-posta Adresiniz">
+                    <button type="submit">Kaydol</button>
+                </div>
+                <div class="social-icons">
+                    <a href="https://twitter.com/seninhesabin" target="_blank" class="social-circle">
+                        <img src="xikon.png" alt="X">
+                    </a>
+                    <a href="https://instagram.com/makingof.io" target="_blank" class="social-circle">
+                        <img src="igikon.png" alt="Instagram">
+                    </a>
+                    <a href="mailto:seninmailin@gmail.com" class="social-circle">
+                        <img src="emailikon.png" alt="Mail">
+                    </a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>KEŞFET</h3>
+                <ul class="footer-links">
+                    <li><a href="guncel.html">GÜNCEL</a></li>
+                    <li><a href="arsiv.html">FİLM ARŞİVİ</a></li>
+                    <li><a href="koleksiyon.html">KOLEKSİYON</a></li>
+                    <li><a href="topluluk.html">TOPLULUK</a></li>
+                    <li><a href="magaza.html">MAĞAZA</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>KULLANIM KOŞULLARI</h3>
+                <ul class="footer-links">
+                    <li><a href="#">GİZLİLİK POLİTİKASI</a></li>
+                    <li><a href="#">GERİ ÖDEME POLİTİKASI</a></li>
+                    <li><a href="#">HİZMET KOŞULLARI</a></li>
+                    <li><a href="#">İLETİŞİM BİLGİLERİ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <hr>
+            <p>© MAKING OF. 2026. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+<script>
+        let currentSlide = 0;
+        
+        function moveSlide(direction) {
+            const track = document.getElementById('heroSlider');
+            const slides = track.querySelectorAll('img');
+            const totalSlides = slides.length;
+
+            currentSlide += direction;
+
+            // Sona gelince başa, baştayken geriye basınca sona atlama
+            if (currentSlide < 0) {
+                currentSlide = totalSlides - 1; 
+            } else if (currentSlide >= totalSlides) {
+                currentSlide = 0; 
+            }
+
+            // Her fotoğraf kendi genişliği (%100) kadar kayar
+            const offset = -currentSlide * 100;
+            track.style.transform = `translateX(${offset}%)`;
+        }
+    </script>
+
+    <script>
+        let currentSlide = 0;
+        
+        function moveSlide(direction) {
+            const track = document.getElementById('heroSlider');
+            const slides = track.querySelectorAll('img');
+            const totalSlides = slides.length;
+
+            currentSlide += direction;
+
+            // Sona gelince başa, baştayken geriye basınca sona atlama kurgusu
+            if (currentSlide < 0) {
+                currentSlide = totalSlides - 1; 
+            } else if (currentSlide >= totalSlides) {
+                currentSlide = 0; 
+            }
+
+            // SİHİRLİ FORMÜL: Şeridin toplam genişliğini görsel sayısına bölerek kaydırır
+            const offset = -(currentSlide * (100 / totalSlides));
+            track.style.transform = `translateX(${offset}%)`;
+        }
+    </script>
+
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="side-cart" id="sideCart">
+        <div class="side-cart-header">
+            <h2>Sepetim</h2>
+            <button class="close-cart-btn" id="closeCartBtn">✕</button>
+        </div>
+        <div class="side-cart-body">
+            </div>
+        <div class="side-cart-footer">
+            <div class="cart-total">
+                <span>Toplam Ücret</span>
+                <strong>0,00 TL</strong>
+            </div>
+            <a href="odeme.html" class="checkout-btn" style="display: block; text-align: center; text-decoration: none; box-sizing: border-box;">Sepeti Onayla</a>
+        </div>
+    </div>
+
+    <script src="sepet.js"></script>
+    
+
+</body>
+</html>

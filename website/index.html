@@ -1,0 +1,321 @@
+<!DOCTYPE html> 
+<html lang="tr"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Making Of</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Kartların sırayla süzülmesi için ufak gecikmeler */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+    </style>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="logo"><img src="logo.svg" alt="Making Of Logo"></div>
+        <div class="header-right">
+            <img src="magazaikon.svg" class="icon-bag" alt="Bag"> 
+            <a href="girisyap.html" class="btn-outline" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">Giriş Yap</a>
+
+            <a href="kaydol.html" class="btn-filled" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">Kaydol</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="slide active" id="aftersun">
+            <div class="hero-text">
+                <h1 class="movie-title">Aftersun</h1>
+                <p class="sub-title">Paris, Texas</p>
+                <p class="sub-title">Toni Erdmann</p>
+            </div>
+        </div>
+        <div class="slide" id="paris">
+            <div class="hero-text">
+                <p class="sub-title">Aftersun</p>
+                <h1 class="movie-title">Paris, Texas</h1>
+                <p class="sub-title">Toni Erdmann</p>
+            </div>
+        </div>
+        <div class="slide" id="toni">
+            <div class="hero-text">
+                <p class="sub-title">Aftersun</p>
+                <p class="sub-title">Paris, Texas</p>
+                <h1 class="movie-title">Toni Erdmann</h1>
+            </div>
+        </div>
+    </section> 
+
+    <section class="archive-section reveal-on-scroll">
+        <div class="archive-container">
+            <img src="arşiv/daire.png" alt="Film Arşivi" class="rotating-daire">
+
+            <div class="archive-content">
+                <h2>ARŞİV</h2>
+                <p class="arsiv-alt-yazi">devam etmek için <a href="arsiv.html" class="arsiv-link">tıkla</a></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-flow-section">
+        <div class="news-container">
+            <div class="news-card reveal-on-scroll delay-1" id="card-odyssey" style="background-image: url('arşiv/oddysey.jpeg');">
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <span class="news-date">22.12.2025</span>
+                    <h3 class="news-title">The Oddyssey <br> Fragmanı Yayınlandı</h3>
+                    <p class="news-desc">The Odyssey, Truva Savaşı'ndan sonra Odysseus'un tehlikeli yolculuğunu ve karısı Penelope ile yeniden bir araya gelmesini konu ediyor.</p>
+                    <a href="oddysey.html" class="news-btn">Haberin Devamı</a>
+                </div>
+            </div>
+            
+            <div class="scroll-hint reveal-on-scroll delay-2">
+                <div class="arrow-line"></div>
+                <span>KAYDIR</span>
+            </div>
+
+            <div class="news-card reveal-on-scroll delay-3" id="card-globes" style="background-image: url('arşiv/sentimental.jpg');">
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <span class="news-date">08.12.2025</span>
+                    <h3 class="news-title">Altın Küre Ödülleri <br> İçin Adaylıklar Açıklandı</h3>
+                    <p class="news-desc">Bu yıl 83. kez sahiplerini bulacak olan Altın Küreler için adaylar belli oldu.</p>
+                    <a href="altınküre.html" class="news-btn">Haberin Devamı</a>
+                </div>
+            </div>
+
+            <div class="news-card reveal-on-scroll delay-4" id="card-gotham" style="background-image: url('arşiv/onebattleafter.jpeg');">
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <span class="news-date">02.12.2025</span>
+                    <h3 class="news-title">One Battle After Another: <br> Gotham Ödülleri'nde "En İyi Film" Ödülünü Kazandı</h3>
+                    <p class="news-desc">Başrollerini Leonardo DiCaprio ve Benicio Del Toro'un paylaştığı aksiyon destanı yılın en iyi filmlerinden biri olarak gösteriliyor.</p>
+                    <a href="onebattle.html" class="news-btn">Haberin Devamı</a>
+                </div>
+            </div>
+
+            <div class="news-card reveal-on-scroll delay-5" id="card-drama" style="background-image: url('arşiv/thedrama.jpg');">
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <span class="news-date">29.11.2025</span>
+                    <h3 class="news-title">The Drama: <br> Evlenmek ne kadar zor olabilir ki?</h3>
+                    <p class="news-desc">Zendaya ve Robert Pattinson'ın başrollerini paylaştığı film 2026 yılının en çok merak edilen filmleri arasında.</p>
+                    <a href="thedrama.html" class="news-btn">Haberin Devamı</a>
+                </div>
+            </div>
+
+            <div class="news-card reveal-on-scroll" id="card-batman" style="background-image: url('arşiv/netflix.jpg.webp');">
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <span class="news-date">15.11.2025</span>
+                    <h3 class="news-title">Netflix, Warner Bros <br> savaşını kazandı</h3>
+                    <p class="news-desc">Aylar süren teklif düellosunun ardından Netflix, Warner Bros'u satın almak için anlaşma sağladı.</p>
+                    <a href="netflix.html" class="news-btn">Haberin Devamı</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="flow-header reveal-on-scroll">
+            <h2>MAKING OF İÇERİK AKIŞI</h2>
+            <p>1 Gün Önce Güncellendi</p>
+        </div>
+    </section>  
+
+    <section class="featured-film-section reveal-on-scroll">
+        <div class="featured-container">
+            <div class="featured-box">
+                <h1 class="featured-title">
+                    400 YIL SÜREN YAS: <span class="highlight-red">HAMNET</span>
+                </h1>
+                
+                <p class="featured-text">
+                    Daha önce Nomadland filmiyle Oscar ödül töreninde kendinden söz 
+                    ettirmiş yönetmen Chloé Zhao, Maggie O'Farrell'ın 2020 yılında yazdığı kitabından esinlenerek aynı isimle uyarladığı "Hamnet" 
+                    ile yeniden Oscar ödüllerinde adından bahsettirdi. Yılın sansasyon 
+                    yaratan filminin yaratım sürecine dair bilgilere buradan ulaşabilirsiniz.
+                </p>
+                
+                <a href="hamnet.html" style="
+                    display: inline-block; 
+                    margin-top: 15px; 
+                    padding: 12px 40px; 
+                    background-color: #ffdd00; 
+                    color: black; 
+                    text-decoration: none; 
+                    border-radius: 4px; 
+                    font-weight: bold; 
+                    font-family: 'Roboto', sans-serif; 
+                    font-size: 0.90rem;
+                    text-align: center;
+                    transition: 0.3s ease;">
+                    Filme Git 
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="collection-hero-section" style="width: 100%; height: 100vh; position: relative; overflow: hidden; background: none !important; margin: 0; padding: 0;">
+    
+    <img src="arşiv/sentimentalhd.jpeg.webp" 
+         alt="Collection" 
+         style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1;">
+
+    <div class="collection-image-layer" style="width: 100%; height: 100%; position: relative; z-index: 2; display: flex; align-items: center; justify-content: flex-start; background: rgba(0,0,0,0.4); padding-left: 80px; box-sizing: border-box;">
+        
+        <div class="collection-content" style="text-align: left; max-width: 800px;">
+    <span class="collection-tag" style="display: block; letter-spacing: 2px; margin-bottom: 10px; font-size: 0.8rem; color: #ddd; font-family: 'Roboto', sans-serif;">KOLEKSİYON</span>
+    
+    <h1 class="collection-title" style="font-size: 2.0rem; line-height: 1.4; margin: 0; color: white; font-family: 'Roboto', sans-serif; font-weight: 700;">
+        GEÇTİĞİMİZ YILIN <br>
+        <span class="yellow-text" style="color: #ffdd00; font-family: 'Playfair Display', serif; font-style: italic; font-weight: normal;">EN İYİ</span> FİLMLERİ
+    </h1>
+    
+    <a href="2025filmler.html" class="discover-btn" style="display: inline-block; margin-top: 15px; padding: 10px 35px; background: #ffdd00; color: black; text-decoration: none; border-radius: 4px; font-weight: bold; font-family: 'Roboto', sans-serif;">Keşfet</a>
+</div>
+
+    </div>
+</section>
+
+    <nav class="main-nav">
+        <div class="nav-capsule">
+            <div class="search-bar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" placeholder="Arama">
+            </div>
+            <a href="index.html" class="active">Ana Sayfa</a>
+            <a href="guncel.html">Güncel</a>
+            <a href="arsiv.html">Film Arşivi</a>
+            <a href="koleksiyon.html">Koleksiyon</a>
+            <a href="topluluk.html">Topluluk</a>
+            <a href="magaza.html">Mağaza</a>
+        </div>
+    </nav>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            
+            <div class="footer-col">
+                <h3>BÜLTENİMİZİ TAKİP ETMEK İÇİN KAYIT OL!</h3>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="E-posta Adresiniz">
+                    <button type="submit">Kaydol</button>
+                </div>
+                
+                <div class="social-icons">
+                    <a href="https://x.com/seninhesabin" target="_blank" class="social-circle">
+                        <img src="xikon.png" alt="X">
+                    </a>
+                    
+                    <a href="https://instagram.com/makingof.io" target="_blank" class="social-circle">
+                        <img src="igikon.png" alt="Instagram">
+                    </a>
+                    
+                    <a href="mailto:makingofilm0@gmail.com" class="social-circle">
+                        <img src="emailikon.png" alt="Mail">
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>KEŞFET</h3>
+                <ul class="footer-links">
+                    <li><a href="guncel.html">GÜNCEL</a></li>
+                    <li><a href="arsiv.html">FİLM ARŞİVİ</a></li>
+                    <li><a href="koleksiyon.html">KOLEKSİYON</a></li>
+                    <li><a href="topluluk.html">TOPLULUK</a></li>
+                    <li><a href="magaza.html">MAĞAZA</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>KULLANIM KOŞULLARI</h3>
+                <ul class="footer-links">
+                    <li><a href="#">GİZLİLİK POLİTİKASI</a></li>
+                    <li><a href="#">GERİ ÖDEME POLİTİKASI</a></li>
+                    <li><a href="#">HİZMET KOŞULLARI</a></li>
+                    <li><a href="#">İLETİŞİM BİLGİLERİ</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <hr>
+            <p>© MAKING OF. 2026. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Kendi yazdığın slider kodu (SÜRE GÜNCELLENDİ)
+        const slides = document.querySelectorAll('.slide');
+        let currentIndex = 0;
+        function nextSlide() {
+            slides[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % slides.length;
+            slides[currentIndex].classList.add('active');
+        }
+        // 3500'ü silip 2500 yaptık. 1 saniye hızlandırdık.
+        setInterval(nextSlide, 2500);
+
+        // YENİ: KAYDIRMA ANİMASYONU TETİKLEYİCİSİ
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1 // 0.15'ti, 0.1 yaparsan elemanın ucu gözüktüğü an animasyon başlar.
+};
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Bir kere çalışsın, geri yukarı çıkınca kaybolmasın
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+                observer.observe(el);
+            });
+        });
+    </script>
+    
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="side-cart" id="sideCart">
+        <div class="side-cart-header">
+            <h2>Sepetim</h2>
+            <button class="close-cart-btn" id="closeCartBtn">✕</button>
+        </div>
+        <div class="side-cart-body">
+            </div>
+        <div class="side-cart-footer">
+            <div class="cart-total">
+                <span>Toplam Ücret</span>
+                <strong>0,00 TL</strong>
+            </div>
+            <a href="odeme.html" class="checkout-btn" style="display: block; text-align: center; text-decoration: none; box-sizing: border-box;">Sepeti Onayla</a>
+        </div>
+    </div>
+
+    <script src="sepet.js"></script>
+    
+</body>
+</html>

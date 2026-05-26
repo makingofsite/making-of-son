@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Güvenli Ödeme | Making Of</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-color: #000; margin: 0;">
+
+    <header class="main-header">
+        <div class="logo"><img src="logo.svg" alt="Making Of Logo"></div>
+        <div class="header-right">
+            <img src="magazaikon.svg" class="icon-bag" alt="Bag"> 
+            <a href="girisyap.html" class="btn-outline" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">Giriş Yap</a>
+
+            <a href="kaydol.html" class="btn-filled" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">Kaydol</a>
+        </div>
+    </header>
+
+    <main class="checkout-container">
+        <div class="checkout-left">
+            
+            <div class="checkout-box">
+                <h2 class="checkout-title">1. İletişim Bilgileri</h2>
+                
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>Ad</label>
+                        <input type="text" class="checkout-input" placeholder="Adınız">
+                    </div>
+                    <div class="input-group">
+                        <label>Soyad</label>
+                        <input type="text" class="checkout-input" placeholder="Soyadınız">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>E-posta Adresi</label>
+                        <input type="email" class="checkout-input" placeholder="ornek@mail.com">
+                    </div>
+                    <div class="input-group">
+                        <label>Telefon Numarası</label>
+                        <input type="tel" class="checkout-input" placeholder="05XX XXX XX XX">
+                    </div>
+                </div>
+            </div>
+
+            <div class="checkout-box">
+                <h2 class="checkout-title">2. Teslimat Adresi</h2>
+                
+                <div class="form-row">
+                    <div class="input-group" style="flex: 2;">
+                        <label>Adres (Sokak, Mahalle)</label>
+                        <input type="text" class="checkout-input" placeholder="Mahalle, Sokak, Cadde...">
+                    </div>
+                    <div class="input-group" style="flex: 1;">
+                        <label>Daire (Kat, Kapı No)</label>
+                        <input type="text" class="checkout-input" placeholder="Kat: 2, Daire: 5">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>İl</label>
+                        <input type="text" class="checkout-input" placeholder="Örn: İstanbul">
+                    </div>
+                    <div class="input-group">
+                        <label>İlçe</label>
+                        <input type="text" class="checkout-input" placeholder="Örn: Kadıköy">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>Posta Kodu</label>
+                        <input type="text" class="checkout-input" placeholder="Örn: 34000">
+                    </div>
+                    <div class="input-group">
+                        <label>Ülke</label>
+                        <input type="text" class="checkout-input" value="Türkiye" readonly style="color: #666; cursor: not-allowed; background-color: #030303;">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Teslimat Notu (İsteğe Bağlı)</label>
+                    <textarea class="checkout-input" rows="2" placeholder="Kurye için eklemek istediğiniz özel bir not var mı?"></textarea>
+                </div>
+            </div>
+
+            <div class="checkout-box">
+                <h2 class="checkout-title">3. Ödeme Bilgileri</h2>
+                
+                <div class="credit-card-mockup">
+                    <div class="input-group">
+                        <label>Kart Üzerindeki İsim</label>
+                        <input type="text" class="checkout-input" placeholder="AD SOYAD">
+                    </div>
+                    <div class="input-group">
+                        <label>Kart Numarası</label>
+                        <input type="text" class="checkout-input" placeholder="XXXX XXXX XXXX XXXX">
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label>Son Kullanma (Ay/Yıl)</label>
+                            <input type="text" class="checkout-input" placeholder="MM/YY">
+                        </div>
+                        <div class="input-group">
+                            <label>CVV</label>
+                            <input type="text" class="checkout-input" placeholder="XXX">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="agreement-box" style="margin-top: 24px; display: flex; align-items: flex-start; gap: 12px;">
+                    <input type="checkbox" id="contract" style="margin-top: 3px; accent-color: #ffdd00; width: 18px; height: 18px; cursor: pointer;">
+                    <label for="contract" style="color: #aaa; font-family: 'Roboto', sans-serif; font-size: 13px; line-height: 1.6; cursor: pointer;">
+                        <a href="#" style="color: #ffdd00; text-decoration: underline; transition: color 0.2s;">Mesafeli Satış Sözleşmesi</a>'ni ve <a href="#" style="color: #ffdd00; text-decoration: underline; transition: color 0.2s;">Ön Bilgilendirme Formu</a>'nu okudum, anladım ve onaylıyorum.
+                    </label>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="checkout-right">
+            <div class="summary-box">
+                <h2 class="checkout-title">Sipariş Özeti</h2>
+                
+                <div id="dinamikSiparisOzeti">
+                    </div>
+
+                <div class="discount-code-box">
+                    <input type="text" class="discount-input" placeholder="İndirim Kodu">
+                    <button class="discount-btn">Uygula</button>
+                </div>
+
+                <div class="summary-totals">
+                    <div class="total-line">
+                        <span>Ara Toplam</span>
+                        <span id="ozetAraToplam">0,00 TL</span>
+                    </div>
+                    <div class="total-line">
+                        <span>Kargo</span>
+                        <span style="color: #4ade80;">Ücretsiz</span>
+                    </div>
+                    <div class="total-line grand-total">
+                        <span>Toplam</span>
+                        <span id="ozetGenelToplam">0,00 TL</span>
+                    </div>
+                </div>
+
+                <button class="complete-order-btn">SİPARİŞİ TAMAMLA</button>
+                
+                <div class="secure-badge">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 5px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    256-Bit SSL Güvenli Ödeme
+                </div>
+            </div>
+        </div>
+    </main>
+
+     <nav class="main-nav">
+        <div class="nav-capsule">
+            <div class="search-bar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" placeholder="Arama">
+            </div>
+            <a href="index.html">Ana Sayfa</a>
+            <a href="guncel.html">Güncel</a>
+            <a href="arsiv.html">Film Arşivi</a>
+            <a href="koleksiyon.html">Koleksiyon</a>
+            <a href="topluluk.html">Topluluk</a>
+            <a href="magaza.html" class="active">Mağaza</a>
+        </div>
+    </nav>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>BÜLTENİMİZİ TAKİP ETMEK İÇİN KAYIT OL!</h3>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="E-posta Adresiniz">
+                    <button type="submit">Kaydol</button>
+                </div>
+                <div class="social-icons">
+                    <a href="https://x.com/seninhesabin" target="_blank" class="social-circle"><img src="xikon.png" alt="X"></a>
+                    <a href="https://instagram.com/makingof.io" target="_blank" class="social-circle"><img src="igikon.png" alt="Instagram"></a>
+                    <a href="mailto:makingofilm0@gmail.com" class="social-circle"><img src="emailikon.png" alt="Mail"></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>KEŞFET</h3>
+                <ul class="footer-links">
+                    <li><a href="guncel.html">GÜNCEL</a></li>
+                    <li><a href="arsiv.html">FİLM ARŞİVİ</a></li>
+                    <li><a href="koleksiyon.html">KOLEKSİYON</a></li>
+                    <li><a href="topluluk.html">TOPLULUK</a></li>
+                    <li><a href="magaza.html">MAĞAZA</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>KULLANIM KOŞULLARI</h3>
+                <ul class="footer-links">
+                    <li><a href="#">GİZLİLİK POLİTİKASI</a></li>
+                    <li><a href="#">GERİ ÖDEME POLİTİKASI</a></li>
+                    <li><a href="#">HİZMET KOŞULLARI</a></li>
+                    <li><a href="#">İLETİŞİM BİLGİLERİ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <hr>
+            <p>© MAKING OF. 2026. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+   <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // ==========================================
+            // 1. SİPARİŞ ÖZETİNİ HAFIZADAN ÇEKİP YAZDIRMA
+            // ==========================================
+            const ozetKutusu = document.getElementById('dinamikSiparisOzeti');
+            const araToplamYazi = document.getElementById('ozetAraToplam');
+            const genelToplamYazi = document.getElementById('ozetGenelToplam');
+            
+            // Sepet hafızasını oku
+            let odemeHafizasi = JSON.parse(localStorage.getItem('makingOfCart')) || [];
+            let siparisToplami = 0;
+            let htmlIcerik = '';
+
+            if (odemeHafizasi.length === 0) {
+                htmlIcerik = '<p style="color:#aaa; font-family:\'Roboto\', sans-serif; font-size:14px; text-align:center; padding-bottom: 16px; border-bottom: 1px dashed #222;">Sepetinizde ürün bulunmuyor.</p>';
+            } else {
+                // Her bir ürünü tek tek HTML'e çevir ve alt alta ekle
+                odemeHafizasi.forEach(urun => {
+                    htmlIcerik += `
+                    <div class="summary-item">
+                        <div class="summary-item-info">
+                            <span class="qty">1x</span>
+                            <span class="name">${urun.name} <span style="color:#aaa; font-size:12px;">(${urun.size})</span></span>
+                        </div>
+                        <span class="price" style="white-space: nowrap; margin-left: 10px;">${urun.price}</span>
+                    </div>`;
+                    
+                    // Fiyatı hesaplamak için matematiğe çevir
+                    let temizFiyat = urun.price.replace(/[^0-9,]/g, '').replace(',', '.');
+                    siparisToplami += parseFloat(temizFiyat || 0);
+                });
+            }
+
+            // HTML'i ekrana bas
+            if (ozetKutusu) ozetKutusu.innerHTML = htmlIcerik;
+            
+            // Toplam tutarı TL formatına çevir ve bas
+            let formatliToplam = siparisToplami.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' TL';
+            if (araToplamYazi) araToplamYazi.textContent = formatliToplam;
+            if (genelToplamYazi) genelToplamYazi.textContent = formatliToplam;
+
+
+            // ==========================================
+            // 2. FORM DOĞRULAMA (Hata mesajları ve sarı butonlar)
+            // ==========================================
+            const completeBtn = document.querySelector('.complete-order-btn');
+            const toast = document.createElement('div');
+            toast.className = 'toast-notification';
+            document.body.appendChild(toast);
+
+            function showToast(message, isSuccess = false) {
+                toast.textContent = message;
+                if (isSuccess) toast.classList.add('success');
+                else toast.classList.remove('success');
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 3000);
+            }
+
+            if (completeBtn) {
+                completeBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    const totalElement = document.querySelector('.grand-total span:last-child');
+                    const totalText = totalElement ? totalElement.textContent.trim() : "0";
+                    
+                    if (totalText === "0,00 TL" || totalText === "0 TL" || totalText === "0") {
+                        showToast("Sepetiniz boş. Lütfen önce ürün ekleyin.");
+                        return; 
+                    }
+
+                    let isFormValid = true;
+                    const requiredInputs = document.querySelectorAll('.checkout-input:not([readonly])');
+                    
+                    requiredInputs.forEach(input => {
+                        if (input.value.trim() === '') {
+                            isFormValid = false;
+                            input.classList.add('error-border');
+                        } else {
+                            input.classList.remove('error-border');
+                        }
+                    });
+
+                    const contractCheckbox = document.getElementById('contract');
+                    const isContractChecked = contractCheckbox ? contractCheckbox.checked : false;
+
+                    if (!isFormValid || !isContractChecked) {
+                        showToast("Lütfen tüm bilgileri doldurun ve sözleşmeyi onaylayın.");
+                    } else {
+                        showToast("Siparişiniz başarıyla alındı! Yönlendiriliyorsunuz...", true);
+                    }
+                });
+            }
+
+            const allInputs = document.querySelectorAll('.checkout-input');
+            allInputs.forEach(input => {
+                input.addEventListener('input', () => {
+                    if (input.value.trim() !== '') {
+                        input.classList.remove('error-border');
+                    }
+                });
+            });
+        });
+    </script>
+
+<div class="cart-overlay" id="cartOverlay"></div>
+    <div class="side-cart" id="sideCart">
+        <div class="side-cart-header">
+            <h2>Sepetim</h2>
+            <button class="close-cart-btn" id="closeCartBtn">✕</button>
+        </div>
+        <div class="side-cart-body">
+            </div>
+        <div class="side-cart-footer">
+            <div class="cart-total">
+                <span>Toplam Ücret</span>
+                <strong>0,00 TL</strong>
+            </div>
+            <a href="odeme.html" class="checkout-btn" style="display: block; text-align: center; text-decoration: none; box-sizing: border-box;">Sepeti Onayla</a>
+        </div>
+    </div>
+
+    <script src="sepet.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,385 @@
+<link rel="stylesheet" href="style.css">
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOPLULUK | Making Of</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-color: #000; margin: 0; padding: 0;">
+
+         <header class="main-header">
+        <div class="logo"><img src="logo.svg" alt="Making Of Logo"></div>
+        <div class="header-right">
+            <img src="magazaikon.svg" class="icon-bag" alt="Bag"> 
+            <a href="girisyap.html" class="btn-outline" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">Giriş Yap</a>
+
+            <a href="kaydol.html" class="btn-filled" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">Kaydol</a>
+        </div>
+    </header>
+
+    <main class="topluluk-page-container">
+    
+
+        <div class="topluluk-content-wrapper">
+            <aside class="topluluk-sidebar">
+                
+                <div class="sidebar-block">
+                    <h3>Popüler Topluluklar</h3>
+                    <div class="sidebar-list">
+                        <div class="sidebar-item">
+                            <img src="arşiv/oscartahminleri.jpg" alt="Oscar" class="sidebar-avatar">
+                            <div class="info">
+                                <h4>2025 Oscar Adayları</h4>
+                                <span>672 Üye</span>
+                            </div>
+                            <button class="sidebar-mini-join">Katıl</button>
+                        </div>
+                        <div class="sidebar-item">
+                            <img src="arşiv/kameranınardı.jpg" alt="Kadınlar" class="sidebar-avatar">
+                            <div class="info">
+                                <h4>Kameranın Ardındaki Kadınlar</h4>
+                                <span>410 Üye</span>
+                            </div>
+                            <button class="sidebar-mini-join">Katıl</button>
+                        </div>
+                        <div class="sidebar-item">
+                            <img src="arşiv/hatırasineması.png.webp" alt="Hatıra" class="sidebar-avatar">
+                            <div class="info">
+                                <h4>Hatıra Sineması</h4>
+                                <span>250 Üye</span>
+                            </div>
+                            <button class="sidebar-mini-join">Katıl</button>
+                        </div>
+                        <div class="sidebar-item">
+                            <img src="arşiv/phoenix.jpg.avif" alt="Aşk" class="sidebar-avatar">
+                            <div class="info">
+                                <h4>Aşk Zamanı</h4>
+                                <span>126 Üye</span>
+                            </div>
+                            <button class="sidebar-mini-join">Katıl</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-block">
+                <h3>Üst Seviye<br>Üyeler</h3>
+                <div class="sidebar-list">
+                    <div class="sidebar-item center-align">
+                        <img src="arşiv/derya.jpeg" alt="Derya" class="sidebar-avatar">
+                        <h4>Derya</h4>
+                        <span>@deryak</span>
+                    </div>
+                    <div class="sidebar-item center-align">
+                        <img src="arşiv/efe.jpg" alt="Efe" class="sidebar-avatar">
+                        <h4>Efe</h4>
+                        <span>@wymefee</span>
+                    </div>
+                    <div class="sidebar-item center-align">
+                        <img src="arşiv/gülce.jpeg" alt="Gülce" class="sidebar-avatar">
+                        <h4>Gülce</h4>
+                        <span>@gülc_3</span>
+                    </div>
+                    <div class="sidebar-item center-align">
+                        <img src="arşiv/yigit.jpeg" alt="Yiğit" class="sidebar-avatar">
+                        <h4>Yiğit</h4>
+                        <span>@shhurababy</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+            <section class="topluluk-main">
+                
+                <div class="topluluk-search">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" placeholder="Topluluk Adı Giriniz">
+                </div>
+
+                <div class="community-banner">
+                    <div class="banner-text">
+                        <h2>Topluluk Oluşturun!</h2>
+                        <p>Sizinle ortak film zevklerine sahip sinefil arkadaşlar edinebilmek için ilgilendiğiniz konuyla ilgili bir topluluk oluşturarak başlayabilirsiniz!</p>
+                        <button class="create-btn" onclick="openModal()">Topluluk Oluştur</button>
+                    </div>
+                    <div class="banner-ill">
+                        <img src="arşiv/toplulukolustur.png" alt="Topluluk İllüstrasyon" style="max-height: 120px; width: auto; object-fit: contain;">
+                    </div>
+                </div>
+
+                <h2 class="section-title">Topluluklar</h2>
+<div class="community-grid">
+                    
+                    <article class="comm-card" onclick="window.location.href='oscartopluluk.html';" style="background-image: url('arşiv/oscartahminleri.jpg'); cursor: pointer;">
+    <div class="comm-overlay"></div>
+    
+    <div class="comm-top-right">
+        <span class="member-tag">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg> 
+            672+ üye
+        </span>
+        <button class="join-btn" onclick="event.stopPropagation(); window.location.href='topluluk-detay.html';">Katıl</button>
+    </div>
+    
+    <div class="comm-bottom-area">
+        <div class="comm-stats">
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg> 798</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg> 372</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 441</span>
+        </div>
+        
+        <div class="comm-titles">
+            <h3>2025 Oscar<br>Adayları Tahminleri</h3>
+            <span class="time">7 Gün Önce</span>
+        </div>
+    </div>
+</article>
+
+                    <article class="comm-card" onclick="window.location.href='kameratopluluk.html';" style="background-image: url('arşiv/kameranınardı.jpg'); cursor: pointer;">
+                        <div class="comm-overlay"></div>
+                        <div class="comm-top-right"><span class="member-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg> 410+ üye</span><button class="join-btn">Katıl</button></div>
+                        
+                        <div class="comm-bottom-area">
+                            <div class="comm-stats">
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg> 500</span>
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg> 182</span>
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 268</span>
+                            </div>
+                            <div class="comm-titles">
+                                <h3>Kameranın<br>Ardındaki Kadınlar</h3>
+                                <span class="time">10 Gün Önce</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="comm-card" onclick="window.location.href='asktopluluk.html';" style="background-image: url('arşiv/phoenix.jpg.avif'); cursor: pointer;">
+                        <div class="comm-overlay"></div>
+                        <div class="comm-top-right"><span class="member-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg> 126+ üye</span><button class="join-btn">Katıl</button></div>
+                        
+                        <div class="comm-bottom-area">
+                            <div class="comm-stats">
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg> 157</span>
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg> 78</span>
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 97</span>
+                            </div>
+                            <div class="comm-titles">
+                                <h3>Aşk Zamanı</h3>
+                                <span class="time">12 Gün Önce</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="comm-card" onclick="window.location.href='sinnerstopluluk.html';" style="background-image: url('arşiv/sinners.jpg'); cursor: pointer;">
+                        <div class="comm-overlay"></div>
+                        <div class="comm-top-right"><span class="member-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg> 82+ üye</span><button class="join-btn">Katıl</button></div>
+                        
+                        <div class="comm-bottom-area">
+                            <div class="comm-stats">
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg> 105</span>
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg> 30</span>
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 25</span>
+                            </div>
+                            <div class="comm-titles">
+                                <h3>Sinners</h3>
+                                <span class="time">19 Gün Önce</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="comm-card" onclick="window.location.href='hatıratopluluk.html';" style="background-image: url('arşiv/hatırasineması.png.webp'); cursor: pointer;">
+                        <div class="comm-overlay"></div>
+                        <div class="comm-top-right"><span class="member-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg> 250+ üye</span><button class="join-btn">Katıl</button></div>
+                        
+                        <div class="comm-bottom-area">
+                            <div class="comm-stats">
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg> 102</span>
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg> 25</span>
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 87</span>
+                            </div>
+                            <div class="comm-titles">
+                                <h3>Hatıra Sineması</h3>
+                                <span class="time">25 Gün Önce</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="comm-card" onclick="window.location.href='korkutopluluk.html';" style="background-image: url('arşiv/korku.webp'); cursor: pointer;">
+                        <div class="comm-overlay"></div>
+                        <div class="comm-top-right"><span class="member-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg> 126+ üye</span><button class="join-btn">Katıl</button></div>
+                        
+                        <div class="comm-bottom-area">
+                            <div class="comm-stats">
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg> 98</span>
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg> 20</span>
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 50</span>
+                            </div>
+                            <div class="comm-titles">
+                                <h3>Sinema'da<br>'Korku' Unsuru</h3>
+                                <span class="time">2 Ay Önce</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="comm-card" onclick="window.location.href='settopluluk.html';" style="background-image: url('arşiv/setarası.jpg'); cursor: pointer;">
+                        <div class="comm-overlay"></div>
+                        <div class="comm-top-right"><span class="member-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg> 110+ üye</span><button class="join-btn">Katıl</button></div>
+                        
+                        <div class="comm-bottom-area">
+                            <div class="comm-stats">
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg> 100</span>
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg> 10</span>
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 40</span>
+                            </div>
+                            <div class="comm-titles">
+                                <h3>Set Arası</h3>
+                                <span class="time">2 Ay Önce</span>
+                            </div>
+                        </div>
+                    </article>
+
+
+                </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+ <nav class="main-nav">
+        <div class="nav-capsule">
+            <div class="search-bar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" placeholder="Arama">
+            </div>
+            <a href="index.html">Ana Sayfa</a>
+            <a href="guncel.html">Güncel</a>
+            <a href="arsiv.html">Film Arşivi</a>
+            <a href="koleksiyon.html">Koleksiyon</a>
+            <a href="topluluk.html"class="active">Topluluk</a>
+            <a href="magaza.html">Mağaza</a>
+        </div>
+    </nav>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>BÜLTENİMİZİ TAKİP ETMEK İÇİN KAYIT OL!</h3>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="E-posta Adresiniz">
+                    <button type="submit">Kaydol</button>
+                </div>
+                <div class="social-icons">
+                <a href="https://x.com/seninhesabin" target="_blank" class="social-circle">
+                    <img src="xikon.png" alt="X">
+                </a>
+                
+                <a href="https://instagram.com/makingof.io" target="_blank" class="social-circle">
+                    <img src="igikon.png" alt="Instagram">
+                </a>
+                
+                <a href="mailto:makingofilm0@gmail.com" class="social-circle">
+                    <img src="emailikon.png" alt="Mail">
+                </a>
+            </div>
+        </div>
+            <div class="footer-col">
+                <h3>KEŞFET</h3>
+                <ul class="footer-links">
+                    <li><a href="guncel.html">GÜNCEL</a></li>
+                    <li><a href="arsiv.html">FİLM ARŞİVİ</a></li>
+                    <li><a href="koleksiyon.html">KOLEKSİYON</a></li>
+                    <li><a href="topluluk.html">TOPLULUK</a></li>
+                    <li><a href="magaza.html">MAĞAZA</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>KULLANIM KOŞULLARI</h3>
+                <ul class="footer-links">
+                    <li><a href="#">GİZLİLİK POLİTİKASI</a></li>
+                    <li><a href="#">GERİ ÖDEME POLİTİKASI</a></li>
+                    <li><a href="#">HİZMET KOŞULLARI</a></li>
+                    <li><a href="#">İLETİŞİM BİLGİLERİ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <hr>
+            <p>© MAKING OF. 2026. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <div class="create-modal-overlay" id="createModal">
+        <div class="create-modal-box">
+            
+            <div class="modal-header">
+                <div class="modal-user">
+                    <img src="arşiv/pp.jpg" alt="Sen" class="modal-avatar">
+                    <div>
+                        <h4 class="modal-username">Sen</h4>
+                        <span class="modal-handle">Kurucu Üye</span>
+                    </div>
+                </div>
+                <button class="modal-close" onclick="closeModal()">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <input type="text" class="modal-input-title" placeholder="Topluluğun adı ne olacak?">
+                <textarea class="modal-input-desc" placeholder="Bu toplulukta ne konuşulacak? Kısaca bahset..."></textarea>
+            </div>
+
+            <div class="modal-footer">
+                <div class="modal-actions">
+                    <button class="icon-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                    </button>
+                    <button class="icon-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line></svg>
+                    </button>
+                </div>
+                <button class="modal-submit-btn">Oluştur</button>
+            </div>
+
+        </div>
+    </div>
+    
+
+<script>
+        // Pencereyi Aç
+        function openModal() {
+            document.getElementById('createModal').style.display = 'flex';
+        }
+        // Pencereyi Kapat
+        function closeModal() {
+            document.getElementById('createModal').style.display = 'none';
+        }
+    </script>
+
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="side-cart" id="sideCart">
+        <div class="side-cart-header">
+            <h2>Sepetim</h2>
+            <button class="close-cart-btn" id="closeCartBtn">✕</button>
+        </div>
+        <div class="side-cart-body">
+            </div>
+        <div class="side-cart-footer">
+            <div class="cart-total">
+                <span>Toplam Ücret</span>
+                <strong>0,00 TL</strong>
+            </div>
+            <a href="odeme.html" class="checkout-btn" style="display: block; text-align: center; text-decoration: none; box-sizing: border-box;">Sepeti Onayla</a>
+        </div>
+    </div>
+
+    <script src="sepet.js"></script>
+    
+</body>
+</html>

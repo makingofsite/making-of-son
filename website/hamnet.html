@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Hamnet - Making Of</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* DEPTH AJANS STİLİ ÖZEL EKLEMELER */
+        :root { --accent: #ffdd00; --bg: #000; }
+        
+        .depth-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: clamp(40px, 6vw, 80px);
+            line-height: 0.9;
+            letter-spacing: -3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .depth-num {
+            font-family: 'Roboto', sans-serif;
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: block;
+            font-weight: bold;
+        }
+
+        .movie-desc {
+            color: #ccc;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .episodes-detail-content { background-color: var(--bg); }
+
+        .tab-content {
+            display: none; /* Başlangıçta hepsi gizli */
+            min-height: 100vh;
+            padding: 100px 5%;
+        }
+
+        .tab-content.active {
+            display: flex !important;
+            flex-direction: column;
+        }
+
+        .modern-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+
+        .modern-grid.reverse { direction: rtl; }
+        .modern-grid.reverse .detail-container { direction: ltr; }
+
+        .episode-detail-img {
+            width: 100%;
+            filter: grayscale(0.3) contrast(1.1);
+            border-radius: 4px;
+            box-shadow: 30px 30px 0px rgba(255, 221, 0, 0.05);
+            transition: transform 0.5s ease;
+        }
+
+        /* Sekme Açıldığında Çalışacak Animasyonlar */
+        .tab-content.active .depth-title { 
+            animation: revealUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; 
+        }
+        .tab-content.active p { 
+            animation: revealUp 0.8s 0.2s cubic-bezier(0.22, 1, 0.36, 1) both; 
+        }
+        .tab-content.active .episode-detail-img { 
+            animation: revealUp 1s 0.3s cubic-bezier(0.22, 1, 0.36, 1) both; 
+        }
+
+        @keyframes revealUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="dark-page">
+    
+    <header class="main-header">
+        <div class="logo"><img src="logo.svg" alt="Making Of Logo"></div>
+        <div class="header-right">
+            <img src="magazaikon.svg" class="icon-bag" alt="Bag"> 
+            <a href="girisyap.html" class="btn-outline" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">Giriş Yap</a>
+
+            <a href="kaydol.html" class="btn-filled" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">Kaydol</a>
+        </div>
+    </header>
+
+    <section class="movie-hero-section movie-detail-v2" style="background-image: linear-gradient(to right, rgba(15,15,15,0.95) 10%, rgba(15,15,15,0.8) 40%, rgba(15,15,15,0.3) 100%), url('arşiv/hamnetarkaplan.jpg');">
+    
+    <div class="movie-content-wrapper">
+        <div class="movie-left-col">
+            <div class="poster-container">
+                <img src="arşiv/hamnet-bg.jpg" alt="Hamnet Poster" class="movie-poster-img">
+            </div>
+            
+            <div class="movie-ratings-row" style="display: flex; align-items: center; gap: 20px; margin-top: 15px;">
+                <div class="rating-item" style="display: flex; align-items: center; gap: 8px;">
+                    <span class="star-icon" style="color: #ffdd00; font-size: 24px;">★</span> 
+                    <span class="score" style="color: #fff; font-size: 18px; font-family: 'Montserrat', sans-serif; font-weight: 500;">7.8 / 10</span>
+                </div>
+                <div class="rating-item meta-item" style="display: flex; align-items: center; gap: 10px;">
+                    <span class="meta-label" style="color: #ccc; font-size: 16px; font-family: 'Montserrat', sans-serif; font-weight: 500; white-space: nowrap;">Metascore</span>
+                    <div class="metascore-box" style="background-color: #66cc33; color: #fff; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; border-radius: 3px; font-family: 'Montserrat', sans-serif; font-weight: bold; font-size: 16px;">84</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="movie-right-col">
+            <span class="movie-year">2025</span>
+            <h1 class="movie-main-title">HAMNET</h1>
+            <h3 class="movie-director">Yönetmen <strong>CHLOE ZHAO</strong></h3>
+            <p class="movie-desc">Akademi Ödüllü yönetmen Chloé Zhao, William Shakespeare ve eşi Agnes'in son derece derin ve mahrem bir portresini hayata geçirerek; evliliklerinin sessiz güzelliğinin ve 11 yaşındaki oğulları Hamnet'in kahredici kaybının izini sürüyor. Senaryosu Zhao ve Maggie O'Farrell tarafından ortaklaşa kaleme alınan ve O'Farrell'ın 2020 çıkışlı romanından esinlenen film; aşk, yas ve hafıza üzerine bir meditasyon niteliğinde gelişirken, aynı anda hem şefkatle sarmalanmış kişisel hem de evrensel düzeyde paylaşılan duyguları ustalıkla yakalıyor.</p>
+            <button class="trailer-btn" onclick="window.open('https://www.youtube.com/watch?v=xYcgQMxQwmk&t=6s')">Fragman</button>
+        </div>
+    </div> <div class="episodes-wrapper">
+        <h2 class="kamera-arkasi-title">Kamera Arkası</h2>       
+        <div class="episodes-container">
+            <div class="episode-card" onclick="showEpisode('bolum1')" style="background-image: url('arşiv/hamnetkameraarkası.jpg'); cursor: pointer;">
+                <div class="ep-overlay"></div>
+                <h4>Kamera Arkası</h4>
+            </div>
+            <div class="episode-card" onclick="showEpisode('bolum2')" style="background-image: url('arşiv/hamnetyonetmenlik.jpg.webp'); cursor: pointer;">
+                <div class="ep-overlay"></div>
+                <h4>Yönetmenlik</h4>
+            </div>
+            <div class="episode-card" onclick="showEpisode('bolum3')" style="background-image: url('arşiv/hamnetses.jpg.webp'); cursor: pointer;">
+                <div class="ep-overlay"></div>
+                <h4>Ses ve Müzik</h4>
+            </div>
+            <div class="episode-card" onclick="showEpisode('bolum4')" style="background-image: url('arşiv/hamnetkostüm.jpg'); cursor: pointer;">
+                <div class="ep-overlay"></div>
+                <h4>Kostüm Tasarımı</h4>
+            </div>
+            <div class="episode-card" onclick="showEpisode('bolum5')" style="background-image: url('arşiv/hamnetset.jpg'); cursor: pointer;">
+                <div class="ep-overlay"></div>
+                <h4>Set Tasarımı</h4>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+    <div id="episode-content-area" class="episodes-detail-content">
+
+        <div id="hedef-kartlar" style="padding-top: 100px; margin-top: -100px;"></div>
+    
+        <div id="bolum1" class="tab-content">
+            
+            <div class="jilet-grid">
+                <div class="jilet-text">
+                    <span class="jilet-subtitle">Bölüm 1</span>
+                    <h3 class="jilet-title">Chloé Zhao'nun Setinde <br> Mobilite ve Dijital İş Akışı</h3>
+                    <p class="jilet-desc">
+                        Akademi Ödüllü yönetmen Chloé Zhao'nun, William Shakespeare’in ailesini ve kaybettikleri oğulları Hamnet'in ardındaki yas sürecini anlattığı filmi, duygusal derinliğinin yanı sıra teknik altyapısıyla da dikkat çekiyor. Görüntü Yönetmeni Łukasz Żal ve DIT (Dijital Görüntü Teknisyeni) Krzysztof Zawieja öncülüğünde kurulan sistem, filmin organik ve belgeselvari görsel dilini desteklemek üzere özel olarak tasarlandı.
+                    </p>
+                </div>
+                <div class="jilet-visual">
+                    <img src="arşiv/kameraarkası-zhao.jpg" alt="Kamera Arkası" class="jilet-img">
+                </div>
+            </div>
+
+            <div class="jilet-grid">
+                <div class="jilet-visual">
+                    <img src="arşiv/kameraarkası2-zhao.jpg" alt="Kompakt Set" class="jilet-img">
+                </div>
+                <div class="jilet-text">
+                    <h3 class="jilet-title">Kompakt ve Mobil Set Kurulumu</h3>
+                    <p class="jilet-desc">
+                        İngiltere ve Galler’in zorlu kırsal şartlarında ve ormanlık alanlarda çekilen filmde, ana kamera olarak teknolojik sınırları zorlayan ARRI Alexa 35 tercih edildi. Yönetmen Zhao’nun sahneleri zaman zaman "belgesel" tarzında, oyunculara haber vermeden anlık olarak kayda girerek çekmek istemesi, kamera departmanının maksimum hareket kabiliyetine sahip olmasını gerektirdi. Bu esneklik ihtiyacı, setin teknolojik donanımında radikal bir değişikliğe yol açtı.
+                    </p>
+                </div>
+            </div>
+
+            <div class="jilet-grid">
+                <div class="jilet-text">
+                    <h3 class="jilet-title">Sette Renk Yönetimi</h3>
+                    <p class="jilet-desc">
+                        DIT Zawieja, Livegrade’in 'log' formatında kayıt özelliği ve önceden tanımlanmış düğümleri sayesinde, çekim sonrası anlık renk düzeltmelerini sette hızlıca uyguladı. Bu durum, görüntü yönetmeni Łukasz Żal'ın teknolojik yükünü hafifleterek tamamen kompozisyona odaklanmasına olanak tanıdı.
+                    </p>
+                </div>
+                <div class="jilet-visual">
+                    <img src="arşiv/kameraarkası4-zhao.jpg.webp" alt="Ekip Çalışması" class="jilet-img">
+                </div>
+            </div> 
+            
+            <div class="jilet-grid">
+                <div class="jilet-visual">
+                    <img src="arşiv/kameraarkası3-zhao.jpg" alt="Kompakt Set" class="jilet-img">
+                </div>
+                <div class="jilet-text">
+                    <h3 class="jilet-title">Veri Güvenliği ve Post Prodüksiyona Hazırlık</h3>
+                    <p class="jilet-desc">Renk düzenlemeleri tamamlandıktan sonra devreye Data Manager girdi. Molalarda alınan PFLA dosyaları doğrudan Silverstack Lab’e aktarılarak Orijinal Kamera Dosyaları ile eşleştirildi. Renk kararlarının içe aktarılması, 3 kopyalı güvenli yedekleme, ön kalite kontrol ve raporlama süreçlerinin tamamı bu yazılım üzerinden yürütüldü. Hazırlanan transfer diskleri (shuttle drives) doğrudan post prodüksiyon stüdyosuna (HARBOR) iletilerek kusursuz bir aktarım sağlandı. Bu minimalist ama teknoloji odaklı altyapı, hantal set ekipmanlarının yaratacağı dikkat dağınıklığını ortadan kaldırarak; oyuncuların o sarsıcı performanslarını tamamen doğal ortamda sergilemelerine imkan tanıdı.</p>
+                </div>
+            </div>  
+
+            <div class="jilet-up-btn-wrapper">
+                <button class="jilet-up-btn" onclick="document.getElementById('hedef-kartlar').scrollIntoView({behavior: 'smooth'})" title="Bölümlere Dön">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                </button>
+            </div>
+
+        </div> <div id="bolum2" class="tab-content">
+            
+            <div class="jilet-grid">
+                <div class="jilet-text">
+                    <span class="jilet-subtitle">Bölüm 2</span>
+                    <h3 class="jilet-title">Chloé Zhao’nun Sezgisel Vizyonu ve “Hamnet”</h3>
+                    <p class="jilet-desc">
+                       Zhao’nun Hamnet’teki temel felsefesi, kararların zihinden değil, bedenden ve hislerden gelmesi gerektiği üzerine kurulu. Yönetmen bu yaklaşımını, "Yönetmenlik entelektüel bir süreç değildir; kararların yarısı bedeninizin nasıl tepki verdiğine bakılarak alınır," sözleriyle açıklıyor. Oyuncuların rollerine rasyonel bir şekilde yaklaşmalarını engellemek için sezgilerin gücüne güvenen Zhao, sahneleri hesaplanmış bir zeka yerine saf duyguyla inşa ediyor. Paul Mescal ve Jessie Buckley’nin ekrandaki o sarsıcı and organik bağını yaratmak için Zhao, geleneksel prova yöntemlerini reddetti. Oyuncuların performanslarının derinliklerine inebilmeleri için sette figüranlarla "rüya yorumlama çalışmaları" yaptı.
+                    </p>
+                </div>
+                <div class="jilet-visual">
+                    <img src="arşiv/zhao-sezgisel.jpg.webp" alt="Yönetmenlik" class="jilet-img">
+                </div>
+            </div>
+
+            <div class="jilet-grid">
+                <div class="jilet-visual">
+                    <img src="arşiv/zhao-sezgisel2.jpg.webp" alt="Performans" class="jilet-img">
+                </div>
+                <div class="jilet-text">
+                    <p class="jilet-desc">
+                        Dahası, yasın ve travmanın bir çifti nasıl parçalayabileceğini gerçekçi bir şekilde yansıtmak için başrol oyuncularıyla tantrik enerji atölyeleri düzenleyerek, onların kendi cinsiyetlerinin en uç kutuplarını hissetmelerini ve karakterlere zihinsel değil, fiziksel bir içgüdüyle yaklaşmalarını sağladı. Senaryonun yazım aşamasında Maggie O'Farrell ile yakın çalışan Zhao, sete çıktığında metne körü körüne bağlı kalmayı reddediyor. Filmi "kendi hayatı olan yaşayan bir organizma" olarak tanımlayan yönetmen, setteki gizemi öldürmemek adına planlarını esnek tuttu. Örneğin; filmin açılış sahnesini önceden belirlemeyip doğru anı bulana kadar açık bıraktı ve hikayenin finalini, çekimlerin bitmesine sadece dört gün kala, setteki oyuncuların enerjisine ve o anki atmosfere göre tamamen değiştirdi.
+                    </p>
+                </div>
+            </div> 
+            
+            <div class="jilet-grid">
+                <div class="jilet-text">
+                    <span class="jilet-subtitle">Bölüm 2</span>
+                    <h3 class="jilet-title">Döngüsel Anlatım ve Ekstatik Gerçeklik</h3>
+                    <p class="jilet-desc">
+                       Chloé Zhao’nun şiirsel ve natüralist sinema dili, Hamnet’te döngüsel bir hikaye anlatımıyla kendini gösteriyor. Mevsimlerin geçişiyle büyüyen momentum, gerilim ve sürpriz unsurları arasındaki dengeyi ustalıkla kuruyor. Zhao, gerçeklik ile kurgu arasındaki o ince çizgiyi bulanıklaştırarak, Werner Herzog'un tabiriyle "ekstatik gerçeğe" (ecstatic truth) ulaşmayı başarıyor; entelektüel olanı soyup atarak izleyiciyi doğrudan, evrensel ve bedensel bir yasın ortasına bırakıyor.
+                    </p>
+                </div> 
+                <div class="jilet-visual">
+                    <img src="arşiv/zhao-sezgisel3.jpg.webp" alt="Yönetmenlik" class="jilet-img">
+                </div>
+            </div> 
+            
+            <div class="jilet-up-btn-wrapper">
+                <button class="jilet-up-btn" onclick="document.getElementById('hedef-kartlar').scrollIntoView({behavior: 'smooth'})" title="Bölümlere Dön">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                </button>
+            </div>
+
+        </div> <div id="bolum3" class="tab-content">
+            
+            <div class="jilet-grid">
+                <div class="jilet-text">
+                    <span class="jilet-subtitle">Bölüm 3</span>
+                    <h3 class="jilet-title">Hamnet ve Ses Tasarımı</h3>
+                    <p class="jilet-desc">
+                       Gladyatör, Yüzüklerin Efendisi ve hatta Dune gibi devasa yapımlardan aşina olduğumuz, yerleşmiş bir "dönem filmi" ses manzarası vardır: Gıcırdayan tahta arabalar, çarpışan zırhlar, görkemli müzikal leitmotifler ve arka planda kederle ağıt yakan kadın sesleri... Ancak Chloé Zhao'nun Hamnet'i, alışılagelmiş dönem filmlerinin hiçbirine benzemiyor ve gücünü tam da bu farklılıktan alıyor. Johnnie Burn, Hamnet için kariyerinin en detaylı ses tasarımlarından birine imza atıyor.
+                    </p>
+                </div>
+                <div class="jilet-visual">
+                    <img src="arşiv/zhao-ses.jpg.webp" alt="Yönetmenlik" class="jilet-img">
+                </div>
+            </div>
+
+            <div class="jilet-grid">
+                <div class="jilet-visual">
+                    <img src="arşiv/zhao-ses2.jpg" alt="Performans" class="jilet-img">
+                </div>
+                <div class="jilet-text">
+                    <h3 class="jilet-title">Gerçekçilik ve Bilinçaltı İllüzyonu</h3>
+                    <p class="jilet-desc">
+                        Burn, The Zone of Interest tecrübesinin bu filme büyük katkı sağladığını belirtiyor: "Ses manzarasını ne kadar gerçekçi ve inandırıcı yaparsanız, izleyicinin filme dalması o kadar inandırıcı ve derin olur. Onlarca küçük detay, bilinçaltı düzeyinde insanları tam da olmaları gereken yere koyuyor." Filmde orman sahneleri büyük önem taşıyor. Belirli bir akor yapısına ve tonaliteye sahip farklı rüzgar seslerini üst üste bindirerek, ortada gerçek bir müzik olmamasına rağmen izleyiciye müzikal bir ruh hali veren bir atmosfer yaratılmıştır.
+                    </p>
+                </div>
+            </div> 
+            
+            <div class="jilet-grid">
+                <div class="jilet-text">
+                    <h3 class="jilet-title">Tablo (Tableau) Sinematografisi ve Sesin Uyumu</h3>
+                    <p class="jilet-desc">
+                       Burn, senaryoyu okuduğunda dinamik bir ortam sesinin izleyiciyi bedensel olarak filmin içine nasıl çekebileceğini fark etti. Yönetmen Chloé Zhao ve Görüntü Yönetmeni Łukasz Żal sahneleri tablo stili (tableau-style) ile çekmeye karar verdiklerinde; oluşan o görsel boşluklar, ses tasarımına devasa bir alan açtı. Ekip doğru sesler için Galler'in derinliklerinde yaprak hışırtıları, ayak sesleri kaydetti. Hatta Burn, filmin içine gerçek bir "sürpriz yumurta" saklamış: Filmde ormanda sıkça duyduğunuz bir kuş, aslında Shakespeare'in oyunlarında kullandığı o meşhur şiirsel vezinle, yani "iambik pentametre" ritmiyle ötüyor!
+                    </p>
+                </div> 
+                <div class="jilet-visual">
+                    <img src="arşiv/zhao-ses3.jpg.webp" alt="Yönetmenlik" class="jilet-img">
+                </div>
+            </div> 
+
+            <div class="jilet-up-btn-wrapper">
+                <button class="jilet-up-btn" onclick="document.getElementById('hedef-kartlar').scrollIntoView({behavior: 'smooth'})" title="Bölümlere Dön">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                </button>
+            </div>
+
+        </div> <div id="bolum4" class="tab-content">
+        
+            <div class="jilet-costume-text">
+                <h3 class="jilet-title">Agnes: Doğanın ve Kanın Renkleri</h3>
+                <p class="jilet-desc">
+                    Ruhsal olarak modern dünya ile ilkel doğa arasında sıkışmış, inatçı ve anaç bir karakter olan Agnes (Jessie Buckley) için Turzanska oldukça metaforik bir renk paleti seçmiş. Kanın farklı evrelerinden (yeni oksitlenmiş, pıhtılaşmış ve kabuk bağlamış hallerinden) ilham alınarak pas, kiremit, kızıl ve mürdüm tonları kullanılmış. Agnes’in ruh halini yansıtacak şekilde eksilip çoğalan katmanlı elbiseler ve pileli etekler tercih edilmiş. Ağaç kabuğu liflerinden ve çeşitli ketenlerden üretilen bu organik kıyafetler, ağaç kurtlarının gövdelerde açtığı oyukları taklit eden ince nakışlarla bezenmiş.
+                    <br><br>
+                    Turzanska, dönemin ahlaki ve sartöryal (giyim kuşam) kurallarına meydan okurcasına kıyafetlerinin içine korse veya iskelet giymeyen Agnes'i şöyle tanımlıyor: "Onu detaylara boğmak istemedim çünkü özünde oldukça 'punk' ve ayakları yere basan biri... O çoğunlukla bitkiler giyiyor; doğayla o kadar iç içe ki, neredeyse o ormanın içinden doğmuş gibi görünüyor."
+                </p>
+            </div>
+
+            <div class="costume-gallery-wrapper">
+                <div class="costume-scroll-container">
+                    <div class="costume-card">
+                        <img src="arşiv/agnes1.jpg.webp" alt="Agnes Eskiz 1">
+                        <span class="costume-label">Eskiz</span>
+                    </div>
+                    <div class="costume-card">
+                        <img src="arşiv/agnes4.jpg.webp" alt="Agnes Eskiz 2">
+                        <span class="costume-label">Kumaş Detayı</span>
+                    </div>
+                    <div class="costume-card">
+                        <img src="arşiv/agnes3.jpg.webp" alt="Agnes Eskiz Detay">
+                        <span class="costume-label">Agnes #02</span>
+                    </div>
+                    <div class="costume-card">
+                        <img src="arşiv/agnes2.jpg.webp" alt="Agnes Sette">
+                        <span class="costume-label">Agnes #01</span>
+                    </div>
+                </div>
+            </div> 
+            
+            <div class="jilet-costume-text">
+                <h3 class="jilet-title">Will: Mürekkep, Çizikler ve İnsanın Dünyası</h3>
+                <p class="jilet-desc">
+                    Agnes’in dokuları ve silüetleri doğayı temsil ederken, Will’in (Paul Mescal) gardırobu tamamen "insanın dünyasına" ait. Onun tasarımları, Elizabeth dönemi kurallarından, Shakespeare’in kendi hayatından ve babasının karanlık mirasından besleniyor. Ekip, Will’in ve diğer aile üyelerinin giysilerini renklendirmek için Shakespeare döneminin en popüler yazı malzemesi olan mazı mürekkebi (iron gall ink) kullanarak çeşitli mavi ve gri tonları elde etti. Bekar bir oyun yazarının yumuşak ve korunaklı pamuklu gömlekleri, zamanla onunla birlikte katılaşan ve daralan bir zırha dönüşürken; kumaşın tonları da giderek solarak kül rengine bürünüyor.
+                    <br><br>
+                    Will'in deri yeleğindeki kapitone dikişler ve lazerle atılmış küçük çizikler, döneme uygun 'pinking' (kumaş veya deriyi küçük kesiklerle süsleme) tekniğiyle derin oyuklara dönüştürülmüş. Turzanska bu kesiklerin psikolojik altyapısını şöyle açıklıyor: "O küçük çiziklerin babasından miras kaldığını hayal ettim. Boynunda pençe gibi bir kürdan taşıyan babasının, filmin başlarında oğlunu kelimenin tam anlamıyla fiziksel olarak tırmaladığını düşündüm."
+                    <br><br>
+                    Bu ince perforasyonlar (delikler) ve çizikler, ancak Will kendi babalığından şüphe etmeye ve kendine zarar vermeye başladığında, özellikle ilk çocukları Susanna'nın doğumundan sonra yaşadığı içsel değişimle birlikte, çok daha derin kesiklere dönüşerek karakterin ruhsal parçalanışını doğrudan kumaşın üzerine kazıyor.
+                </p>
+            </div>
+
+            <div class="costume-gallery-wrapper">
+                <div class="costume-scroll-container">
+                    <div class="costume-card">
+                        <img src="arşiv/will1.jpg.webp" alt="Will Eskiz 1">
+                        <span class="costume-label">Eskiz</span>
+                    </div>
+                    <div class="costume-card">
+                        <img src="arşiv/will4.jpg.webp" alt="Will Eskiz 2">
+                        <span class="costume-label">Kumaş Detayı</span>
+                    </div>
+                    <div class="costume-card">
+                        <img src="arşiv/will3.jpg.webp" alt="Will Eskiz Detay">
+                        <span class="costume-label">Will #01</span>
+                    </div>
+                    <div class="costume-card">
+                        <img src="arşiv/will2.jpg.webp" alt="Will Sette">
+                        <span class="costume-label">Will #02</span>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="jilet-up-btn-wrapper">
+                <button class="jilet-up-btn" onclick="document.getElementById('hedef-kartlar').scrollIntoView({behavior: 'smooth'})" title="Bölümlere Dön">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                </button>
+            </div>
+
+        </div> <div id="bolum5" class="tab-content">
+            
+            <div class="jilet-grid">
+                <div class="jilet-text">
+                    <span class="jilet-subtitle">Bölüm 5</span>
+                    <h3 class="jilet-title">16. Yüzyılı Yeniden İnşa Etmek ve Mekan Tasarımı</h3>
+                    <p class="jilet-desc">
+                       William Shakespeare gibi kültürel bir devin hayatını, onun evlerini müzeye dönüştürmeden beyazperdeye nasıl aktarırsınız? Hamnet filminin yapım ekibinin karşılaştığı en büyük zorluklardan biri, Londra'daki Globe Tiyatrosu ve Anne Hathaway'in evi gibi tarihi ikonları, turistik mekanların kısıtlamaları olmadan yeniden yaratmaktı. Yapım Tasarımcısı Fiona Crombie, Shakespeare'in dünyasını otantik mekanlarla sıfırdan kurguladı.
+                    </p>
+                </div>
+                <div class="jilet-visual">
+                    <img src="arşiv/set1.JPG.webp" alt="Mekan Tasarımı" class="jilet-img">
+                </div>
+            </div>
+
+            <div class="jilet-grid">
+                <div class="jilet-visual">
+                    <img src="arşiv/set3.jpg.webp" alt="Çiftlik Evi" class="jilet-img">
+                </div>
+                <div class="jilet-text">
+                    <h3 class="jilet-title">Tarihi Çiftlik Evine Dönüş: Agnes’in Evi</h3>
+                    <p class="jilet-desc">
+                        Shakespeare'in eşi Agnes'in asıl evi olan Stratford-upon-Avon'daki "Hewlands" çiftliği popüler bir turistik mekan olduğu için ekip rotasını Herefordshire'a çevirdi. Kamera karşısına daha önce hiç çıkmamış, Cwmmau'da bulunan ortaçağdan kalma tescilli bir çiftlik evi keşfedildi. Crombie ve ekibi, çekimler başlamadan önce tüm bu modernizasyon işlemlerini geçici olarak maskeleyip yapıyı 16. yüzyıl dokusuna geri döndürdü.
+                    </p>
+                </div>
+            </div> 
+            
+            <div class="jilet-grid">
+                <div class="jilet-text">
+                    <h3 class="jilet-title">16. Yüzyıl Stratford-upon-Avon’u ve Doğum Sahnesi</h3>
+                    <p class="jilet-desc">
+                       William'ın babasının yanında çalıştığı dönemi ve kasaba hayatını yansıtmak için İngiltere'nin kusursuz korunmuş Tudor binalarına sahip olan "siyah-beyaz köyü" Weobley seçildi. 2024 yazında sokaklar döneme uyarlandı. Agnes'in, kızı Susanna'yı ulu bir ağacın kucağında doğurduğu o sahne için ise Lydney Park Malikanesi'nin el değmemiş ormanları kullanıldı.
+                     </p>
+                </div> 
+                <div class="jilet-visual">
+                    <img src="arşiv/set2.jpg.webp" alt="Stratford-upon-Avon" class="jilet-img">
+                </div>
+            </div>
+
+            <div class="jilet-grid">
+                <div class="jilet-visual">
+                    <img src="arşiv/seteskiz5.jpg" alt="Londra Sokakları" class="jilet-img">
+                </div>
+                <div class="jilet-text">
+                    <h3 class="jilet-title">Londra Sokakları ve Thames Nehri Lojistiği</h3>
+                    <p class="jilet-desc">
+                        William'ın oyun yazarlığı kariyeri için taşındığı Londra sahnelerinin büyük bir kısmı, şehrin kalbinde yer alan ve 600 yılı asker geçmişe sahip olan Charterhouse'da çekildi. William'ın alacakaranlıkta Thames kıyısında oturduğu sahne, prodüksiyonun en büyük lojistik sınavlarından biriydi. Çekim takvimi tamamen ayın hareketlerine, gelgit durumlarına göre belirlendi.
+                    </p>
+                </div>
+            </div> 
+
+            <div class="costume-gallery-wrapper">
+                <div class="costume-scroll-container">
+                    <div class="costume-card">
+                        <img src="arşiv/seteskiz.jpg" alt="Set Eskiz 1">
+                        <span class="costume-label">Eskiz #01</span>
+                    </div>
+                    <div class="costume-card">
+                        <img src="arşiv/set2.jpg" alt="Set Eskiz 2">
+                        <span class="costume-label">Eskiz #02</span>
+                    </div>
+                    <div class="costume-card">
+                        <img src="arşiv/seteskiz3.jpg" alt="Set Eskiz Detay">
+                        <span class="costume-label">Kumaş Detayı</span>
+                    </div>
+                    <div class="costume-card">
+                        <img src="arşiv/seteskiz4.jpg" alt="Set Sette">
+                        <span class="costume-label">Sette</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="jilet-grid">
+                <div class="jilet-text">
+                    <h3 class="jilet-title">Orijinal Globe Tiyatrosu'nun Doğuşu</h3>
+                    <p class="jilet-desc">
+                       Günümüzde Londra'da turistlerin akınına uğrayan Globe Tiyatrosu, aslında orijinal yapının 1614'te yanmasından sonra inşa edilen ikinci versiyonudur. Crombie, genç Shakespeare'in gerçekten bildiği, 1599 tarihli ilk Globe Tiyatrosu'nu Elstree Stüdyoları'nda sıfırdan inşa etti. Hamnet için inşa edilen set, bu kaba işlenmiş, rustik versiyonu beyazperdeye taşıyarak tarihsel doğruluğu merkeze aldı.
+                    </p>
+                </div> 
+                <div class="jilet-visual">
+                    <img src="arşiv/globe1.jpg.webp" alt="Globe Tiyatrosu" class="jilet-img">
+                </div>
+            </div>
+
+            <div class="costume-gallery-wrapper">
+                <div class="costume-scroll-container">
+                    <div class="costume-card">
+                        <img src="arşiv/globe-3.jpg" alt="Globe Eskiz 1">
+                        <span class="costume-label">Eskiz #01</span>
+                    </div>
+                    <div class="costume-card">
+                        <img src="arşiv/globe-4.jpg" alt="Globe Eskiz 2">
+                        <span class="costume-label">Eskiz #02</span>
+                    </div>
+                    <div class="costume-card">
+                        <img src="arşiv/globe3.jpg.webp" alt="Globe Detay">
+                        <span class="costume-label">Kumaş Detayı</span>
+                    </div>
+                    <div class="costume-card">
+                        <img src="arşiv/globe2.jpg.webp" alt="Globe Sette">
+                        <span class="costume-label">Sette</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="jilet-up-btn-wrapper">
+                <button class="jilet-up-btn" onclick="document.getElementById('hedef-kartlar').scrollIntoView({behavior: 'smooth'})" title="Bölümlere Dön">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                </button>
+            </div>
+
+        </div> </div> <nav class="main-nav">
+        <div class="nav-capsule">
+            <div class="search-bar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" placeholder="Arama">
+            </div>
+            <a href="index.html">Ana Sayfa</a>
+            <a href="guncel.html">Güncel</a>
+            <a href="arsiv.html">Film Arşivi</a>
+            <a href="koleksiyon.html">Koleksiyon</a>
+            <a href="topluluk.html">Topluluk</a>
+            <a href="magaza.html">Mağaza</a>
+        </div>
+    </nav>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>BÜLTENİMİZİ TAKİP ETMEK İÇİN KAYIT OL!</h3>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="E-posta Adresiniz">
+                    <button type="submit">Kaydol</button>
+                </div>
+                <div class="social-icons">
+                    <a href="https://x.com/seninhesabin" target="_blank" class="social-circle"><img src="xikon.png" alt="X"></a>
+                    <a href="https://instagram.com/makingof.io" target="_blank" class="social-circle"><img src="igikon.png" alt="Instagram"></a>
+                    <a href="mailto:makingofilm0@gmail.com" class="social-circle"><img src="emailikon.png" alt="Mail"></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>KEŞFET</h3>
+                <ul class="footer-links">
+                    <li><a href="guncel.html">GÜNCEL</a></li>
+                    <li><a href="arsiv.html">FİLM ARŞİVİ</a></li>
+                    <li><a href="koleksiyon.html">KOLEKSİYON</a></li>
+                    <li><a href="topluluk.html">TOPLULUK</a></li>
+                    <li><a href="magaza.html">MAĞAZA</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>KULLANIM KOŞULLARI</h3>
+                <ul class="footer-links">
+                    <li><a href="#">GİZLİLİK POLİTİKASI</a></li>
+                    <li><a href="#">GERİ ÖDEME POLİTİKASI</a></li>
+                    <li><a href="#">HİZMET KOŞULLARI</a></li>
+                    <li><a href="#">İLETİŞİM BİLGİLERİ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <hr>
+            <p>© MAKING OF. 2026. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Scroll Gözlemcisi (Aşağı indikçe beliren elemanlar)
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    obs.unobserve(entry.target); 
+                }
+            });
+        }, {
+            rootMargin: "0px 0px -100px 0px" 
+        });
+
+        document.querySelectorAll('.tab-content.active .jilet-grid').forEach(grid => {
+            observer.observe(grid);
+        });
+
+        // 2. Sekme değiştirme (Bölümleri Açma)
+        window.showEpisode = function(episodeId) {
+            const target = document.getElementById(episodeId);
+            
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+                content.querySelectorAll('.jilet-grid').forEach(grid => {
+                    grid.classList.remove('is-visible');
+                });
+            });
+
+            if (target) {
+                target.classList.add('active');
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                
+                setTimeout(() => {
+                    target.querySelectorAll('.jilet-grid').forEach(grid => {
+                        observer.observe(grid);
+                    });
+                }, 100);
+            }
+        };
+    });
+    </script>
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="side-cart" id="sideCart">
+        <div class="side-cart-header">
+            <h2>Sepetim</h2>
+            <button class="close-cart-btn" id="closeCartBtn">✕</button>
+        </div>
+        <div class="side-cart-body">
+            </div>
+        <div class="side-cart-footer">
+            <div class="cart-total">
+                <span>Toplam Ücret</span>
+                <strong>0,00 TL</strong>
+            </div>
+            <a href="odeme.html" class="checkout-btn" style="display: block; text-align: center; text-decoration: none; box-sizing: border-box;">Sepeti Onayla</a>
+        </div>
+    </div>
+
+    <script src="sepet.js"></script>
+    
+</body>
+</html>
