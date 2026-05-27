@@ -5130,3 +5130,120 @@ body,
     color: #fff;
     text-decoration: underline;
 }
+/* =========================================
+   ÜRÜN DETAY SAYFASI (YENİ KLASİK NOİR STİL)
+   ========================================= */
+
+.pdp-classic-container {
+    display: flex;
+    gap: 40px;
+    max-width: 1200px; /* Sitenin ortasına hizalar */
+    margin: 60px auto;
+    padding: 0 40px;
+    align-items: flex-start;
+}
+
+/* SOL: Küçük Galeriler */
+.pdp-thumbnails {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 120px;
+}
+.pdp-thumbnails img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    border-radius: 12px; /* Köşeleri yuvarlatır */
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+.pdp-thumbnails img:hover, 
+.pdp-thumbnails img.active {
+    opacity: 1;
+    border-color: #fff; /* Seçili görsele beyaz çerçeve atar */
+}
+
+/* ORTA: Ana Görsel */
+.pdp-main-image {
+    flex: 1;
+    max-width: 500px;
+}
+.pdp-main-image img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* SAĞ: Bilgi Paneli */
+.pdp-info {
+    flex: 1;
+    max-width: 400px;
+    padding-top: 10px;
+}
+.pdp-info .product-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 10px 0;
+}
+.pdp-description {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 40px;
+}
+
+/* Beden Yuvarlakları */
+.pdp-size-circles {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+.pdp-size-circles span {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #000;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.pdp-size-circles span:hover {
+    background-color: #fff;
+}
+.pdp-size-circles span.active {
+    background-color: #ffdd00 !important;
+    color: #000 !important;
+    box-shadow: 0 0 15px rgba(255, 221, 0, 0.4);
+}
+
+/* Oval Sarı Buton */
+.pdp-add-btn {
+    width: 100%;
+    background-color: #ffdd00;
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    padding: 18px;
+    border-radius: 40px; /* Görseldeki gibi oval yapar */
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+.pdp-add-btn:hover {
+    background-color: #fff;
+    transform: translateY(-2px);
+}
