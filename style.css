@@ -375,7 +375,8 @@ html, body {
     left: 50%;
     /* Ekrandaki boyutunu buradan ayarla (90vh dikeyde ekranı doldurur) */
     height: 95vh; 
-    width: auto;
+   /* Eski 'width: auto;' satırını silip yerine şunu yaz: */
+    aspect-ratio: 1 / 1;
     
     /* Animasyon: 30 saniyede bir tur, takılmadan (linear) sonsuza dek */
     animation: rotateSelf 30s linear infinite;
